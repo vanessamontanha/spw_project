@@ -99,11 +99,11 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: host }
   
   ActionMailer::Base.smtp_settings = {
-  :port           => ENV['587'],
-  :address        => ENV['smtp.mailgun.org'],
-  :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-  :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-  :domain         => 'https://spw-project.herokuapp.com/',
+  :port           => '587',
+  :address        => 'smtp.mailgun.org',
+  :user_name      => 'MAILGUN_SMTP_LOGIN',
+  :password       => 'MAILGUN_SMTP_PASSWORD',
+  :domain         => 'spw-project.herokuapp.com',
   :authentication => :plain,
 }
 ActionMailer::Base.delivery_method = :smtp
