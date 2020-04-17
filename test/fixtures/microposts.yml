@@ -1,0 +1,46 @@
+orange:
+  content: "I just ate an apple!"
+  created_at: <%= 10.minutes.ago %>
+  user: vanessa
+
+tau_manifesto:
+  content: "Manu Chtassi is the new orange"
+  created_at: <%= 3.years.ago %>
+  user: vanessa
+
+cat_video:
+  content: "I reckon..."
+  created_at: <%= 2.hours.ago %>
+  user: vanessa
+
+most_recent:
+  content: "Writing a short test"
+  created_at: <%= Time.zone.now %>
+  user: vanessa
+  
+<% 30.times do |n| %>
+micropost_<%= n %>:
+  content: <%= Faker::Lorem.sentence(word_count: 5) %>
+  created_at: <%= 42.days.ago %>
+  user: vanessa
+<% end %>
+
+ants:
+  content: "Disney movies with ants make me cry"
+  created_at: <%= 2.years.ago %>
+  user: thomas
+
+zone:
+  content: "No way"
+  created_at: <%= 3.days.ago %>
+  user: thoas
+
+tone:
+  content: "Dance monkey uh uh"
+  created_at: <%= 10.minutes.ago %>
+  user: lana
+
+van:
+  content: "Jesus is back"
+  created_at: <%= 4.hours.ago %>
+  user: lana

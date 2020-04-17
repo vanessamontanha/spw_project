@@ -7,6 +7,9 @@ gem 'faker',          '2.1.2'
 gem 'will_paginate',           '3.1.8'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'sendgrid-ruby'
+gem 'active_storage_validations', '0.8.2'
+gem 'image_processing',           '1.9.3'
+gem 'mini_magick',                '4.9.5'
 gem 'bootstrap-sass', '3.4.1'
 gem 'puma',           '4.3.3'
 gem 'sass-rails',     '5.1.0'
@@ -29,7 +32,7 @@ end
 
 group :test do
   gem 'capybara',                 '3.28.0'
-  gem 'selenium-webdriver',       '3.142.3'
+  gem 'selenium-webdriver',       '3.142.4'
   gem 'webdrivers',               '4.1.2'
   gem 'rails-controller-testing', '1.0.4'
   gem 'minitest',                 '5.11.3'
@@ -40,6 +43,7 @@ end
 
 group :production do
   gem 'pg', '1.1.4'
+  gem 'aws-sdk-s3', '1.46.0', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
