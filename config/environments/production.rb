@@ -98,15 +98,15 @@ Rails.application.configure do
   host = 'spw-project.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
   
-  ActionMailer::Base.smtp_settings = {
-  :port           => '587',
-  :address        => 'smtp.mailgun.org',
-  :user_name      => 'MAILGUN_SMTP_LOGIN',
-  :password       => 'MAILGUN_SMTP_PASSWORD',
-  :domain         => 'spw-project.herokuapp.com',
-  :authentication => :plain,
+ config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  port: 587,
+  address: 'smtp.gmail.com',
+  user_name: 'SMTP_USER_NAME',
+  password: 'SMTP_PASSWORD',
+  authentication: :plain,
+  enable_starttls_auto: true
 }
-ActionMailer::Base.delivery_method = :smtp
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
