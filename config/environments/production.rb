@@ -94,20 +94,22 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-  host = 'spw-project.herokuapp.com'
-  config.action_mailer.default_url_options = { host: host }
-  
+ 
+  # config/environments/production.rb
 
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'spw-project.herokuapp.com',
-    :enable_starttls_auto => true
-  }
+config.action_mailer.delivery_method = :smtp
+host = 'spw-project.herokuapp.com' #replace with your own url
+config.action_mailer.default_url_options = { host: host }
+
+# SMTP settings for gmail
+config.action_mailer.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :user_name            => SMPT_USER_NAME,
+  :password             => SMTP_PASSWORD,
+  :authentication       => "plain",
+  :enable_starttls_auto => true
+}
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
