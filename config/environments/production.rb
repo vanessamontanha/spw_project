@@ -101,15 +101,15 @@ config.action_mailer.delivery_method = :smtp
 host = 'spw-project.herokuapp.com' #replace with your own url
 config.action_mailer.default_url_options = { host: host }
 
-# SMTP settings for gmail
-config.action_mailer.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-  :user_name            => "SMTP_USER_NAME",
-  :password             => "SMTP_PASSWORD",
-  :authentication       => "plain",
-  :enable_starttls_auto => true
+ActionMailer::Base.smtp_settings = {
+  :port           => ENV['MAILGUN_SMTP_PORT'],
+  :address        => ENV['MAILGUN_SMTP_SERVER'],
+  :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+  :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+  :domain         => 'spw-project.herokuapp.com',
+  :authentication => :plain,
 }
+ActionMailer::Base.delivery_method = :smtp
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
